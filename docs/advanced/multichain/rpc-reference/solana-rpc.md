@@ -23,7 +23,7 @@ This RPC notification is sent by the wallet when the active _account_ changes in
 
 **Example**
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "method": "accountChanged",
@@ -51,7 +51,7 @@ This method returns a signature for the provided message from the requested sign
 
 **Example**
 
-```json
+```javascript
 // Request
 {
 	"id": 1,
@@ -87,7 +87,7 @@ This method returns a signature over the provided instructions by the targeted p
 
 **Example**
 
-```json
+```javascript
 // Request
 {
 	"id": 1,
@@ -129,7 +129,7 @@ This method request to a wallet to sign and submit a transaction to the network.
 
 **Example**
 
-```json
+```javascript
 // Request
 {
 	"id": 1,
@@ -174,7 +174,7 @@ This method request to a wallet to sign and submit a transaction to the network.
 
 **Example**
 
-```json
+```javascript
 // Request
 {
 	"id": 1,
