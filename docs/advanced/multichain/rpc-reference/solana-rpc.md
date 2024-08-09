@@ -23,7 +23,7 @@ This RPC notification is sent by the wallet when the active _account_ changes in
 
 **Example**
 
-```javascript
+```json
 {
   "jsonrpc": "2.0",
   "method": "accountChanged",
@@ -47,12 +47,11 @@ This method returns a signature for the provided message from the requested sign
 
 **Returns**
 
-    1. `Object`
-    	1.1. `signature` : `String` - corresponding signature for signed message
+    1. `signature` : `String` - corresponding signature for signed message
 
 **Example**
 
-```javascript
+```json
 // Request
 {
 	"id": 1,
@@ -68,7 +67,7 @@ This method returns a signature for the provided message from the requested sign
 {
 	"id": 1,
 	"jsonrpc": "2.0",
-	"result":  { signature: "2Lb1KQHWfbV3pWMqXZveFWqneSyhH95YsgCENRWnArSkLydjN1M42oB82zSd6BBdGkM9pE6sQLQf1gyBh8KWM2c4" }
+	"result":  "2Lb1KQHWfbV3pWMqXZveFWqneSyhH95YsgCENRWnArSkLydjN1M42oB82zSd6BBdGkM9pE6sQLQf1gyBh8KWM2c4"
 }
 ```
 
@@ -84,12 +83,11 @@ This method returns a signature over the provided instructions by the targeted p
 
 **Returns**
 
-    1. `Object`
-    	1.1. `transaction` : `String` - the signed transaction raw bytes encoded on base58
+    1. `transaction` : `String` - the signed transaction raw bytes encoded on base58
 
 **Example**
 
-```javascript
+```json
 // Request
 {
 	"id": 1,
@@ -105,9 +103,7 @@ This method returns a signature over the provided instructions by the targeted p
 {
 	"id": 1,
 	"jsonrpc": "2.0",
-	"result":  { 
-      "transaction": "..."
-    }
+	"result":  "2Lb1KQHWfbV3pWMqXZveFWqneSyhH95YsgCENRWnArSkLydjN1M42oB82zSd6BBdGkM9pE6sQLQf1gyBh8KWM2c4"
 }
 ```
 
@@ -129,12 +125,11 @@ This method request to a wallet to sign and submit a transaction to the network.
 
 **Returns**
 
-    1. `Object`
-    	1.1. `transaction` : `String` - the signed transaction raw bytes encoded on base58
+    1. `transaction` : `String` - the signed transaction raw bytes encoded on base58
 
 **Example**
 
-```javascript
+```json
 // Request
 {
 	"id": 1,
@@ -144,10 +139,10 @@ This method request to a wallet to sign and submit a transaction to the network.
       "transaction": "...",
       "pubkey": "AqP3MyNwDP4L1GJKYhzmaAUdrjzpqJUZjahM7kHpgavm",
 			"sendOptions": {
-				"maxRetries": 2;
-				"minContextSlot": 2;
-				"preflightCommitment": "processed";
-				"skipPreflight": false;
+				"maxRetries": 2,
+				"minContextSlot": 2,
+				"preflightCommitment": "processed",
+				"skipPreflight": false,
 			}
 	}
 }
@@ -156,9 +151,7 @@ This method request to a wallet to sign and submit a transaction to the network.
 {
 	"id": 1,
 	"jsonrpc": "2.0",
-	"result":  { 
-      "transaction": "..."
-    }
+	"result":  "2Lb1KQHWfbV3pWMqXZveFWqneSyhH95YsgCENRWnArSkLydjN1M42oB82zSd6BBdGkM9pE6sQLQf1gyBh8KWM2c4"
 }
 ```
 
@@ -176,13 +169,12 @@ This method request to a wallet to sign and submit a transaction to the network.
 
 **Returns**
 
-    1. `Object`
-    	1.1. `transactions` : `Array` -  Array of transactions.
-				1.1.1 `String` - signed serialized transaction, bs58-encoded
+    1. `transactions` : `Array` -  Array of transactions.
+			1.1. `String` - signed serialized transaction, bs58-encoded
 
 **Example**
 
-```javascript
+```json
 // Request
 {
 	"id": 1,
@@ -202,13 +194,11 @@ This method request to a wallet to sign and submit a transaction to the network.
 {
 	"id": 1,
 	"jsonrpc": "2.0",
-	"result":  { 
-      "transaction": [
-				"...",
-				"...",
-				"..."
-			],
-    }
+	"result": [
+		"...",
+		"...",
+		"..."
+	]
 }
 ```
 
