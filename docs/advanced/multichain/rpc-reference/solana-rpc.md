@@ -35,73 +35,7 @@ This methods is sent by the wallet when the active _account_ changes.
 
 ## Methods
 
-### solana_getAccounts
-
-This method returns an Array of public keys available to sign from the wallet.
-
-**Parameters**
-
-    none
-
-**Returns**
-
-    1.`Array` - Array of accounts:
-    	1.1. `Object`
-    		1.1.1. `pubkey` : `String` - public key for keypair
-
-**Example**
-
-```javascript
-// Request
-{
-  "id": 1,
-  "jsonrpc": "2.0",
-  "method": "solana_getAccounts",
-  "params": {}
-}
-
-// Result
-{
-  "id": 1,
-  "jsonrpc": "2.0",
-  "result": [{ "pubkey": "722RdWmHC5TGXBjTejzNjbc8xEiduVDLqZvoUGz6Xzbp" }]
-}
-```
-
-### solana_requestAccounts
-
-This method returns an Array of public keys available to sign from the wallet.
-
-**Parameters**
-
-    none
-
-**Returns**
-
-    1.`Array` - Array of accounts:
-    	1.1. `Object`
-    		1.1.1. `pubkey` : `String` - public key for keypair
-
-**Example**
-
-```javascript
-// Request
-{
-  "id": 1,
-  "jsonrpc": "2.0",
-  "method": "solana_getAccounts",
-  "params": {}
-}
-
-// Result
-{
-  "id": 1,
-  "jsonrpc": "2.0",
-  "result": [{ "pubkey": "722RdWmHC5TGXBjTejzNjbc8xEiduVDLqZvoUGz6Xzbp" }]
-}
-```
-
-### solana_signMessage
+### signMessage
 
 This method returns a signature for the provided message from the requested signer address.
 
@@ -123,7 +57,7 @@ This method returns a signature for the provided message from the requested sign
 {
 	"id": 1,
 	"jsonrpc": "2.0",
-	"method": "solana_signMessage",
+	"method": "signMessage",
 	"params": {
 		"message": "37u9WtQpcm6ULa3VtWDFAWoQc1hUvybPrA3dtx99tgHvvcE7pKRZjuGmn7VX2tC3JmYDYGG7",
 		"pubkey": "AqP3MyNwDP4L1GJKYhzmaAUdrjzpqJUZjahM7kHpgavm"
@@ -138,20 +72,20 @@ This method returns a signature for the provided message from the requested sign
 }
 ```
 
-### solana_signTransaction
+### signTransaction
 
 This method returns a signature over the provided instructions by the targeted public key.
 
 **Parameters**
 
     1. `Object` - Signing parameters:
-    	1.1. `transaction` : `TODO` -  the transaction raw bytes encoded on base58
-    	1.2. `pubkey` : `TODO` - TODO
+    	1.1. `transaction` : `String` -  the transaction raw bytes encoded on base58
+    	1.2. `pubkey` : `String` - Signer public key.
 
 **Returns**
 
     1. `Object`
-    	1.1. `transaction` : `TODO` - the signed transaction raw bytes encoded on base58
+    	1.1. `transaction` : `String` - the signed transaction raw bytes encoded on base58
 
 **Example**
 
@@ -160,9 +94,9 @@ This method returns a signature over the provided instructions by the targeted p
 {
 	"id": 1,
 	"jsonrpc": "2.0",
-	"method": "solana_signTransaction",
+	"method": "signTransaction",
 	"params": {
-      "transaction": "abc123...",
+      "transaction": "...",
       "pubkey": "AqP3MyNwDP4L1GJKYhzmaAUdrjzpqJUZjahM7kHpgavm"
 	}
 }
@@ -172,21 +106,21 @@ This method returns a signature over the provided instructions by the targeted p
 	"id": 1,
 	"jsonrpc": "2.0",
 	"result":  { 
-      "transaction": "abc123..."
+      "transaction": "..."
     }
 }
 ```
 
-### solana_signAndSendTransaction
+### signAndSendTransaction
 
 This method request to a wallet to sign and submit a transaction to the network.
 
 **Parameters**
 
     1. `Object` - Signing parameters:
-    	1.1. `transaction` : `TODO` -  the transaction raw bytes encoded on base58
-    	1.2. `pubkey` : `TODO` - TODO
-			1.3. `sendOptions` : `object` - TODO
+    	1.1. `transaction` : `String` -  the transaction raw bytes encoded on base58
+    	1.2. `pubkey` : `String` - Signer public key.
+			1.3. `sendOptions` : `object` - Transaction options for the wallet.
 				1.3.1. `maxRetries` : `number` \(optional\) - 
 				1.3.1. `minContextSlot` : `number` \(optional\) -
 				1.3.1. `preflightCommitment` : `string` \(optional\) -
@@ -196,7 +130,7 @@ This method request to a wallet to sign and submit a transaction to the network.
 **Returns**
 
     1. `Object`
-    	1.1. `transaction` : `TODO` - the signed transaction raw bytes encoded on base58
+    	1.1. `transaction` : `String` - the signed transaction raw bytes encoded on base58
 
 **Example**
 
@@ -205,13 +139,13 @@ This method request to a wallet to sign and submit a transaction to the network.
 {
 	"id": 1,
 	"jsonrpc": "2.0",
-	"method": "solana_signAndSendTransaction",
+	"method": "signAndSendTransaction",
 	"params": {
-      "transaction": "abc123...",
+      "transaction": "...",
       "pubkey": "AqP3MyNwDP4L1GJKYhzmaAUdrjzpqJUZjahM7kHpgavm",
 			"sendOptions": {
 				"maxRetries": 2;
-				"minContextSlot": TODO;
+				"minContextSlot": 2;
 				"preflightCommitment": "processed";
 				"skipPreflight": false;
 			}
@@ -223,12 +157,12 @@ This method request to a wallet to sign and submit a transaction to the network.
 	"id": 1,
 	"jsonrpc": "2.0",
 	"result":  { 
-      "transaction": "abc123..."
+      "transaction": "..."
     }
 }
 ```
 
-### solana_signAllTransactions
+### signAllTransactions
 
 This method request to a wallet to sign and submit a transaction to the network.
 
@@ -237,7 +171,7 @@ This method request to a wallet to sign and submit a transaction to the network.
     1. `Object` - Signing parameters:
     	1.1. `transactions` : `Array` -  Array of transactions.
 				1.1.1 `String` - serialized transaction, bs58-encoded
-    	1.2. `pubkey` : `String` - TODO
+    	1.2. `pubkey` : `String` - Signer public key.
 
 
 **Returns**
@@ -253,7 +187,7 @@ This method request to a wallet to sign and submit a transaction to the network.
 {
 	"id": 1,
 	"jsonrpc": "2.0",
-	"method": "solana_signAndSendTransaction",
+	"method": "signAndSendTransaction",
 	"params": {
       "transaction": [
 				"...",
