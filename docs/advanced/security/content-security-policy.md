@@ -16,7 +16,7 @@ script-src 'self';
 style-src https://fonts.googleapis.com;
 img-src * 'self' data: blob: https://walletconnect.org https://secure.walletconnect.org https://tokens-data.1inch.io https://tokens.1inch.io https://ipfs.io https://lab.web3modal.com;
 font-src 'self' https://fonts.gstatic.com;
-connect-src 'self' https://rpc.walletconnect.org https://explorer.walletconnect.org https://relay.walletconnect.org wss://relay.walletconnect.org https://pulse.walletconnect.org https://api.web3modal.org wss://www.walletlink.org https://o1095249.ingest.sentry.io;
+connect-src 'self' https://rpc.walletconnect.org https://explorer.walletconnect.org https://relay.walletconnect.org wss://relay.walletconnect.org https://pulse.walletconnect.org https://api.web3modal.org wss://www.walletlink.org;
 frame-src 'self' https://verify.walletconnect.org https://secure.walletconnect.org;
 ```
 
