@@ -80,7 +80,11 @@ const advanced = {
       label: 'Providers & Adapters',
       collapsible: true,
       collapsed: true,
-      items: ['advanced/providers/ethereum', 'advanced/providers/universal', 'advanced/providers/solana-adapter']
+      items: [
+        'advanced/providers/ethereum',
+        'advanced/providers/universal',
+        'advanced/providers/solana-adapter'
+      ]
     },
     {
       type: 'category',
@@ -153,7 +157,7 @@ const welcome = {
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 
 module.exports = {
-  WCM:[
+  WCM: [
     {
       type: 'doc',
       label: 'Home',
@@ -177,7 +181,7 @@ module.exports = {
         'advanced/walletconnectmodal/theming',
         'advanced/walletconnectmodal/resources'
       ]
-    },
+    }
   ],
   mainSidebar: [
     {
@@ -241,6 +245,7 @@ module.exports = {
               collapsible: true,
               items: [
                 { type: 'doc', label: 'From RainbowKit', id: 'appkit/migration/from-rainbowkit-next' },
+                { type: 'doc', label: 'From Anza Adapter', id: 'appkit/migration/from-anza-adapter-react' },
               ]
             },
           ]
