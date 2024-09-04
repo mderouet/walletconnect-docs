@@ -35,7 +35,7 @@ final web3Wallet = Web3Wallet(
 
 Once everything is properly configured, and the user interacts with a Link Mode-supporting dApp, your wallet will receive requests through it.
 
-On Flutter there are different plugins that would help you integrate Universal/App Links but, no matter which one you choose, it is important that, when capturing an incoming link, you pass it to WalletKit so it can process it:
+In Flutter, there are various plugins that can help you integrate Universal/App Links. However, regardless of which one you choose, it is crucial that, when capturing an incoming link, you pass it to WalletKit so it can process the request.
 
 ```dart
 void _onLinkCaptured(String link) async {
